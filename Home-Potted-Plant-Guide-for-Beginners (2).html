@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Potted Plant Guide for Beginners</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f8f0;
+    color: #26382b;
+    line-height: 1.6;
+}
+header {
+    background: #245c3a;
+    color: white;
+    padding: 18px 6%;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+.logo { width: 48px; height: 48px; object-fit: contain; }
+header h2 { font-size: 21px; margin-right: auto; }
+nav { display: flex; flex-wrap: wrap; gap: 14px; }
+nav a { color: white; text-decoration: none; font-size: 14px; }
+nav a:hover { color: #b9f3ae; }
+.hero {
+    background: linear-gradient(120deg, #dcefd5, #f5f9e9);
+    padding: 55px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.hero-content { flex: 1; min-width: 260px; }
+.hero h1 { font-size: clamp(30px, 5vw, 46px); color: #245c3a; line-height: 1.2; margin-bottom: 16px; }
+.hero p { max-width: 540px; margin-bottom: 22px; }
+.hero-art { flex: 1; min-width: 200px; text-align: center; }
+.hero-art img { max-width: 100%; max-height: 260px; object-fit: contain; border-radius: 12px; }
+.btn, button {
+    display: inline-block;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 16px;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn, .add { background: #2d7547; color: white; }
+.btn:hover, .add:hover { background: #194a2d; }
+section { padding: 42px 8%; scroll-margin-top: 16px; }
+.section-title { text-align: center; margin-bottom: 12px; color: #245c3a; font-size: 28px; }
+.section-description { text-align: center; max-width: 650px; margin: 0 auto 28px; color: #617064; }
+.materials, .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+}
+.material-card, .step-card, .card, .plant {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 12px #2030200d;
+}
+.material-card { text-align: center; }
+.emoji { font-size: 36px; }
+.material-card h3 { font-size: 16px; margin-top: 7px; }
+.step-card { border-left: 5px solid #65a66d; }
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #e0f1dc;
+    color: #245c3a;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.step-card h3 { color: #245c3a; margin-bottom: 7px; }
+.project { background: #e7f1e2; }
+.card { max-width: 780px; margin: 0 auto 24px; }
+.card h2 { color: #245c3a; margin-bottom: 16px; }
+#plantForm { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+#plantForm label { font-weight: bold; font-size: 14px; align-self: end; }
+#plantForm input, #plantForm select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbd7c9;
+    border-radius: 7px;
+    background: white;
+    font: inherit;
+}
+#plantForm .full, #plantForm button { grid-column: 1 / -1; }
+.note { margin-top: 14px; color: #617064; font-size: 14px; }
+#count { margin-bottom: 14px; }
+#plantList { display: grid; gap: 14px; }
+.plant { border-top: 4px solid #2d7547; overflow-wrap: anywhere; }
+.plant h3 { color: #245c3a; margin-bottom: 8px; }
+.plant p { margin: 5px 0; }
+.plant button { margin: 12px 8px 0 0; }
+.water { background: #dcefd5; color: #194a2d; }
+.delete { background: #f8dddd; color: #7b2020; }
+footer { background: #1e482e; color: white; text-align: center; padding: 22px; font-size: 14px; }
+@media (max-width: 600px) {
+    header { padding: 16px 5%; }
+    header h2 { font-size: 18px; }
+    section, .hero { padding: 32px 5%; }
+    #plantForm { grid-template-columns: 1fr; }
+    #plantForm .full, #plantForm button { grid-column: auto; }
+}
+</style>
+</head>
+<body>
+<header>
+    <img class="logo" src="logo.jpg" alt="Website logo">
+    <img class="logo" src="1logo.jpg" alt="Website logo">
+    <h2>🌱 Home Potted Plant Guide</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#steps">Planting Guide</a>
+        <a href="#planner">Plant Planner</a>
+    </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>The Step-by-Step Guide to Home-Based Potted Planting</h1>
+        <p>Learn how to grow plants at home using pots, suitable soil, 
+        and proper plant care. Start a small garden even if you have
+         limited space and limited materials.</p>
+        <a class="btn" href="#steps">Explore the Steps →</a>
+    </div>
+    <div class="hero-art">
+        <img src="images.jpg" alt="Potted plant">
+    </div>
+</section>
+
+<section id="materials">
+    <h2 class="section-title">Materials Needed</h2>
+    <p class="section-description">Prepare these basic materials before starting your planting project.</p>
+    <div class="materials">
+        <div class="material-card">
+            <div class="emoji">🪴</div>
+            <h3>Plant Pot</h3>
+            <p>With drainage holes</p>
+        </div>
+        <div class="material-card">
+            <div class="emoji">🟤</div>
+            <h3>Potting Mix</h3>
+            <p>Suitable growing medium</p>
+        </div>
+        <div class="material-card">
+            <div class="emoji">🌱</div>
+            <h3>Seeds or Seedlings</h3>
+            <p>Choose suitable plants</p>
+        </div>
+        <div class="material-card">
+            <div class="emoji">💧</div>
+            <h3>Water</h3>
+            <p>For healthy growth</p>
+        </div>
+        <div class="material-card">
+            <div class="emoji">🥄</div>
+            <h3>Small Trowel</h3>
+            <p>For handling soil</p>
+        </div>
+    </div>
+</section>
+
+<section id="steps">
+    <h2 class="section-title">Step-by-Step Planting Guide</h2>
+    <p class="section-description">Follow these six steps to establish and maintain your home garden.</p>
+    <div class="steps">
+        <article class="step-card"><div class="step-number">
+            01</div><h3>Choose Your Plant</h3>
+            <p>Select a plant suited to your space and available sunlight. 
+                Beginners can try pechay, basil, or mint.</p>
+            </article>
+
+        <article class="step-card"><div class="step-number">
+            02</div><h3>Prepare the Pot</h3>
+            <p>Choose a clean pot with drainage holes. 
+                You can reuse a clean container that is safe for growing plants.</p>
+            </article>
+                
+        <article class="step-card"><div class="step-number">
+            03</div><h3>Prepare the Soil</h3>
+            <p>Fill the pot with suitable potting mix. 
+                Moisten it lightly and leave space at the top for watering.</p>
+            </article>
+
+        <article class="step-card"><div class="step-number">
+            04</div><h3>Plant the Seeds</h3>
+            <p>Follow the seed packet for planting depth and spacing. 
+                Place seedling roots gently in the soil and cover them.</p>
+            </article>
+
+        <article class="step-card"><div class="step-number">
+            05</div><h3>Water the Plant</h3>
+            <p>Water gently after planting. 
+                Check the soil regularly and avoid keeping it constantly soggy.</p>
+            </article>
+
+        <article class="step-card"><div class="step-number">
+            06</div><h3>Provide Regular Care</h3>
+            <p>Place the pot where the plant gets suitable light. 
+                Monitor its growth and provide nutrients when needed.</p>
+            </article>
+
+    </div>
+</section>
+
+<section class="project" id="planner">
+    <div class="card">
+        <h2>Add Your Plant</h2>
+        <form id="plantForm">
+            <label for="name">Plant Name</label>
+            <label for="soilType">Type of Soil</label>
+            <input id="name" placeholder="e.g. Tomato Plant" required>
+            <select id="soilType" required>
+                <option value="">Select soil type</option>
+                <option>Loamy Soil</option>
+                <option>Sandy Soil</option>
+                <option>Clay Soil</option>
+                <option>Silty Soil</option>
+                <option>Peat Soil</option>
+                <option>Potting Mix</option>
+                <option>Coco Peat Mix</option>
+            </select>
+
+            <label for="planted">Date Planted</label>
+            <label for="lastWatered">Last Watered Date</label>
+            <input type="date" id="planted" required>
+            <input type="date" id="lastWatered" required>
+
+            <label for="interval">Water Every (Days)</label>
+            <label for="sunStart">Sunlight Start Time</label>
+            <input type="number" id="interval" min="1" max="365" value="2" required>
+            <input type="time" id="sunStart" value="07:00" required>
+
+            <label for="sunHours">Sunlight Duration (Hours)</label>
+            <span></span>
+            <input type="number" id="sunHours" min="0.5" max="12" step="0.5" value="6" required>
+            <button class="add" type="submit">Add Plant</button>
+        </form>
+        <p class="note">By choosing or
+         searching for their chosen plant, our website will instantly
+         recommend an optimal way to help the plant grow. Users can
+         instantly access actionable insights detailing the optimal soil
+         type, watering frequency, preferred temperature range, and
+        necessary nutrients required for successful growth.</p>
+    </div>
+
+    <div class="card">
+        <h2>Your Plant Care Schedule</h2>
+        <p id="count">Plants: 0</p>
+        <div id="plantList"></div>
+    </div>
+</section>
+</main>
+
+<footer><p>🌱 Home Potted Plant Guide for Beginners</p></footer>
+
+<script>
+const form = document.getElementById("plantForm");
+const list = document.getElementById("plantList");
+const count = document.getElementById("count");
+const todayString = () => {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+};
+const formatDate = date => date.toLocaleDateString("en-PH", {
+    year: "numeric", month: "long", day: "numeric"
+});
+const addDays = (dateString, days) => {
+    const date = new Date(dateString + "T12:00:00");
+    date.setDate(date.getDate() + Number(days));
+    return date;
+};
+
+let plants = [];
+try {
+    plants = JSON.parse(localStorage.getItem("smartPlants")) || [];
+    if (!Array.isArray(plants)) plants = [];
+} catch {
+    plants = [];
+}
+
+function savePlants() {
+    try {
+        localStorage.setItem("smartPlants", JSON.stringify(plants));
+        return true;
+    } catch {
+        alert("Unable to save plants in this browser.");
+        return false;
+    }
+}
+
+function displayPlants() {
+    list.replaceChildren();
+    count.textContent = `Plants: ${plants.length}`;
+
+    if (plants.length === 0) {
+        list.textContent = "No plants added yet. Add your first plant above!";
+        return;
+    }
+
+    plants.forEach(plant => {
+        const card = document.createElement("article");
+        card.className = "plant";
+
+        const title = document.createElement("h3");
+        title.textContent = `🪴 ${plant.name}`;
+
+        const details = [
+            `🟤 Type of Soil: ${plant.soilType || "Not specified"}`,
+            `🌱 Date planted: ${formatDate(new Date(plant.planted + "T12:00:00"))}`,
+            `☀️ Sunlight: ${plant.sunStart} for ${plant.sunHours} hour(s) daily`,
+            `Watering interval: Every ${plant.interval} day(s)`
+        ];
+        details.forEach(text => {
+            const p = document.createElement("p");
+            p.textContent = text;
+            card.appendChild(p);
+        });
+
+        const nextWater = addDays(plant.lastWatered, plant.interval);
+        const today = new Date(todayString() + "T00:00:00");
+        const nextWaterDay = new Date(nextWater);
+        nextWaterDay.setHours(0, 0, 0, 0);
+        const waterInfo = document.createElement("p");
+        waterInfo.textContent = `💧 Next watering: ${formatDate(nextWater)}${nextWaterDay <= today ? " — Check if it needs water today!" : ""}`;
+        card.append(title, waterInfo);
+
+        const waterButton = document.createElement("button");
+        waterButton.className = "water";
+        waterButton.textContent = "Mark as Watered Today";
+        waterButton.addEventListener("click", () => {
+            if (plant.lastWatered === todayString()) {
+                alert("This plant is already marked as watered today.");
+                return;
+            }
+            plant.lastWatered = todayString();
+            if (savePlants()) displayPlants();
+        });
+
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete";
+        deleteButton.textContent = "Delete Plant";
+        deleteButton.addEventListener("click", () => {
+            if (!confirm(`Delete ${plant.name}?`)) return;
+            const oldPlants = plants;
+            plants = plants.filter(item => item.id !== plant.id);
+            if (savePlants()) displayPlants();
+            else plants = oldPlants;
+        });
+
+        card.append(waterButton, deleteButton);
+        list.appendChild(card);
+    });
+}
+
+form.addEventListener("submit", event => {
+    event.preventDefault();
+    const plant = {
+        id: Date.now().toString() + Math.random().toString(36).slice(2),
+        name: document.getElementById("name").value.trim(),
+        soilType: document.getElementById("soilType").value,
+        planted: document.getElementById("planted").value,
+        lastWatered: document.getElementById("lastWatered").value,
+        interval: Number(document.getElementById("interval").value),
+        sunStart: document.getElementById("sunStart").value,
+        sunHours: Number(document.getElementById("sunHours").value)
+    };
+
+    if (!plant.name || !plant.soilType || !plant.planted || !plant.lastWatered ||
+        !plant.sunStart || !Number.isInteger(plant.interval) ||
+        plant.interval < 1 || plant.interval > 365 ||
+        !Number.isFinite(plant.sunHours) || plant.sunHours < 0.5 || plant.sunHours > 12) {
+        alert("Please enter valid plant care information.");
+        return;
+    }
+    if (plant.planted > todayString() || plant.lastWatered > todayString()) {
+        alert("Dates cannot be in the future.");
+        return;
+    }
+    if (plant.lastWatered < plant.planted) {
+        alert("Last watered date cannot be before the planting date.");
+        return;
+    }
+
+    plants.push(plant);
+    if (!savePlants()) {
+        plants.pop();
+        return;
+    }
+
+    form.reset();
+    document.getElementById("planted").value = todayString();
+    document.getElementById("lastWatered").value = todayString();
+    document.getElementById("interval").value = 2;
+    document.getElementById("sunStart").value = "07:00";
+    document.getElementById("sunHours").value = 6;
+    displayPlants();
+});
+
+document.getElementById("planted").value = todayString();
+document.getElementById("lastWatered").value = todayString();
+displayPlants();
+
+
+
+
+</script>
+</body>
+</html>
